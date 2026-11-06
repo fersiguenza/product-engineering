@@ -610,7 +610,7 @@ export const frLocale = {
     unitLabel: (current: number, total: number) => `Leçon ${current} sur ${total}`,
     goToLesson: (current: number) => `Aller à la leçon ${current}`,
     reflect: "Réfléchissez à une situation réelle",
-    studyGuide: "Ouvrir le guide d’étude approfondi",
+    studyGuide: "Guide d’étude approfondi",
     guideDescription: "Plus de contexte, des questions pour s’entraîner et des ressources fiables pour continuer à apprendre.",
     downloadGuide: "Télécharger en Markdown",
     printGuide: "Imprimer ou enregistrer au format PDF",

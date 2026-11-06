@@ -424,7 +424,7 @@ export const itLocale = {
     unitLabel: (current: number, total: number) => `Lezione ${current} di ${total}`,
     goToLesson: (current: number) => `Vai alla lezione ${current}`,
     reflect: "Ragionaci in una situazione reale",
-    studyGuide: "Apri la guida di studio estesa",
+    studyGuide: "Guida di studio estesa",
     guideDescription: "Più contesto, domande per esercitarti e risorse affidabili per continuare a imparare.",
     downloadGuide: "Scarica Markdown",
     printGuide: "Stampa o salva come PDF",

@@ -92,7 +92,7 @@ const copy = {
     unitLabel: (current: number, total: number) => `Lección ${current} de ${total}`,
     goToLesson: (current: number) => `Ir a la lección ${current}`,
     reflect: "Pensalo en una situación real",
-    studyGuide: "Abrir guía de estudio ampliada",
+    studyGuide: "Guía de estudio ampliada",
     guideDescription: "Más contexto, preguntas para practicar y recursos confiables para seguir aprendiendo.",
     downloadGuide: "Descargar Markdown",
     printGuide: "Imprimir o guardar como PDF",
@@ -223,7 +223,7 @@ const copy = {
     unitLabel: (current: number, total: number) => `Lesson ${current} of ${total}`,
     goToLesson: (current: number) => `Go to lesson ${current}`,
     reflect: "Think it through in a real situation",
-    studyGuide: "Open the extended study guide",
+    studyGuide: "Extended study guide",
     guideDescription: "More context, practice questions, and trusted resources to keep learning.",
     downloadGuide: "Download Markdown",
     printGuide: "Print or save as PDF",
@@ -881,57 +881,11 @@ function App() {
           ))}
         </section>
 
-        <section className="project-work-card" aria-labelledby="project-work-title">
-          <header className="practice-card-heading">
-            <div>
-              <p className="eyebrow">{t.apply}</p>
-              <h2 id="project-work-title">{t.projectWorkTitle}</h2>
-            </div>
-            <span className="practice-step" aria-hidden="true">02</span>
-          </header>
-          <div className="practice-project">
-            <span aria-hidden="true">{activeProject.icon}</span>
-            <div>
-              <strong>{text(activeProject.title, language)}</strong>
-              <p>{text(activeProject.prompt, language)}</p>
-            </div>
-          </div>
-          <p className="practice-scenario">{text(activeUnit.scenario, language)}</p>
-          <label>
-            <span className="sr-only">{t.projectWorkTitle} — {text(activeModule.title, language)}</span>
-            <textarea
-              value={projectNotes[activeModule.id] ?? ""}
-              onChange={(event) =>
-                setProjectNotes((current) => ({ ...current, [activeModule.id]: event.target.value }))
-              }
-              placeholder={t.projectWorkPlaceholder}
-              rows={4}
-            />
-          </label>
-        </section>
-
-        <div className="unit-pagination">
-          <button
-            className="text-button"
-            onClick={() => setUnit(unitIndex - 1)}
-            disabled={unitIndex === 0}
-          >
-            ← {t.previous}
-          </button>
-          <span>{unitIndex + 1} / {activeCurriculum.units.length}</span>
-          {unitIndex < activeCurriculum.units.length - 1 ? (
-            <button className="button button-primary" onClick={() => setUnit(unitIndex + 1)}>
-              {t.next} <span aria-hidden="true">→</span>
-            </button>
-          ) : (
-            <button className="button button-primary" onClick={startExam}>
-              {t.startExam} <span aria-hidden="true">→</span>
-            </button>
-          )}
-        </div>
-
-        <details className="study-guide">
-          <summary>{t.studyGuide}</summary>
+        <details className="study-guide" open>
+          <summary>
+            <span>{t.studyGuide}</span>
+            <span className="practice-step guide-step" aria-hidden="true">02</span>
+          </summary>
           <div className="study-guide-content">
             <header className="study-guide-header">
               <div>
@@ -1003,6 +957,55 @@ function App() {
             </section>
           </div>
         </details>
+
+        <section className="project-work-card" aria-labelledby="project-work-title">
+          <header className="practice-card-heading">
+            <div>
+              <p className="eyebrow">{t.apply}</p>
+              <h2 id="project-work-title">{t.projectWorkTitle}</h2>
+            </div>
+            <span className="practice-step" aria-hidden="true">03</span>
+          </header>
+          <div className="practice-project">
+            <span aria-hidden="true">{activeProject.icon}</span>
+            <div>
+              <strong>{text(activeProject.title, language)}</strong>
+              <p>{text(activeProject.prompt, language)}</p>
+            </div>
+          </div>
+          <p className="practice-scenario">{text(activeUnit.scenario, language)}</p>
+          <label>
+            <span className="sr-only">{t.projectWorkTitle} — {text(activeModule.title, language)}</span>
+            <textarea
+              value={projectNotes[activeModule.id] ?? ""}
+              onChange={(event) =>
+                setProjectNotes((current) => ({ ...current, [activeModule.id]: event.target.value }))
+              }
+              placeholder={t.projectWorkPlaceholder}
+              rows={4}
+            />
+          </label>
+        </section>
+
+        <div className="unit-pagination">
+          <button
+            className="text-button"
+            onClick={() => setUnit(unitIndex - 1)}
+            disabled={unitIndex === 0}
+          >
+            ← {t.previous}
+          </button>
+          <span>{unitIndex + 1} / {activeCurriculum.units.length}</span>
+          {unitIndex < activeCurriculum.units.length - 1 ? (
+            <button className="button button-primary" onClick={() => setUnit(unitIndex + 1)}>
+              {t.next} <span aria-hidden="true">→</span>
+            </button>
+          ) : (
+            <button className="button button-primary" onClick={startExam}>
+              {t.startExam} <span aria-hidden="true">→</span>
+            </button>
+          )}
+        </div>
       </article>
     );
   }
