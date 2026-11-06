@@ -79,7 +79,7 @@ button { color: inherit; }
 .home-bottom { display: flex; justify-content: space-between; gap: 16px; margin-top: clamp(60px, 13vh, 130px); padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: 10px; }
 
 .course-shell { display: grid; min-height: calc(100vh - 128px); grid-template-columns: 275px minmax(0, 1fr); align-items: stretch; }
-.course-sidebar { position: sticky; top: 0; display: flex; height: calc(100vh - 72px); min-height: 670px; flex-direction: column; padding: 24px 18px 17px max(22px, calc((100vw - 1300px) / 2)); border-right: 1px solid var(--line); background: #f2f1ec; }
+.course-sidebar { position: sticky; top: 0; display: flex; height: calc(100vh - 72px); min-height: 670px; flex-direction: column; padding: 24px 18px 17px 22px; border-right: 1px solid var(--line); background: #f2f1ec; }
 .sidebar-heading { display: flex; align-items: center; justify-content: space-between; padding: 0 10px 16px; }
 .sidebar-count { color: #696d77; font-size: 10px; font-variant-numeric: tabular-nums; }
 .module-nav { display: grid; gap: 4px; }
@@ -200,10 +200,6 @@ button { color: inherit; }
 .site-footer { display: flex; min-height: 56px; justify-content: space-between; align-items: center; gap: 16px; padding: 10px max(5.5vw, calc((100vw - 1300px) / 2)); border-top: 1px solid var(--line); color: var(--muted); font-size: 9px; }
 .sidebar-scrim { display: none; }
 
-@media (min-width: 1500px) {
-  .course-shell { grid-template-columns: max(275px, calc((100vw - 1300px) / 2 + 275px)) minmax(0, 1fr); }
-  .course-sidebar { padding-left: max(22px, calc((100vw - 1300px) / 2)); }
-}
 @media (max-width: 960px) {
   .course-shell { grid-template-columns: 235px minmax(0, 1fr); }
   .course-sidebar { padding-right: 12px; padding-left: 14px; }
@@ -576,6 +572,12 @@ button { color: inherit; }
 .result-score { color: #5e55d1; }
 .review-topics li { border-color: #e8e7f0; border-radius: 8px; background: #f6f6fb; }
 .site-footer { border-top-color: #e8e7f0; }
+
+@media (min-width: 1500px) {
+  .course-shell { width: min(100%, 1600px); margin-inline: auto; }
+  .course-sidebar { padding-left: 22px; }
+  .course-main { margin-left: 0; margin-right: auto; }
+}
 
 @media (max-width: 700px) {
   .home-page { width: min(100% - 36px, 520px); min-height: auto; padding: 46px 0 28px; }
