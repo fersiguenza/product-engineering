@@ -267,45 +267,6 @@ export const course: CourseModule[] = [
     },
   },
   {
-    id: "analytics",
-    icon: "⌁",
-    color: "blue",
-    title: { es: "Medir y aprender", en: "Measure and learn" },
-    role: { es: "Product analytics", en: "Product analytics" },
-    duration: { es: "18 min", en: "18 min" },
-    lessonTitle: { es: "Medí decisiones, no clics", en: "Measure decisions, not clicks" },
-    lesson: {
-      es: "Seguí el recorrido del dato desde sus fuentes hasta modelos confiables en capas bronze, silver y gold. Diseñá dashboards para decisiones reales con herramientas como Tableau o Power BI; tracking, calidad y privacidad importan en cada etapa.",
-      en: "Follow data from its sources through trusted bronze, silver, and gold models. Design dashboards for real decisions with tools such as Tableau or Power BI; tracking, quality, and privacy matter at every step.",
-    },
-    practiceTitle: { es: "Un plan de tracking responsable", en: "A responsible tracking plan" },
-    practice: {
-      es: "Para tu proyecto, elegí un objetivo y armá una fila del plan: evento, cuándo se dispara, parámetro estrictamente necesario y qué decisión informa. Ejemplo: `booking_completed`, al confirmar el turno, `service_type`, para entender qué servicios se reservan. Nunca envíes nombres, emails ni información sensible a Analytics. Antes de instrumentar, revisá consentimiento, privacidad y requisitos aplicables.",
-      en: "For your project, choose a goal and draft one row in a tracking plan: event, when it fires, strictly necessary parameter, and the decision it informs. Example: `booking_completed`, when an appointment is confirmed, `service_type`, to learn which services people book. Never send names, emails, or sensitive information to Analytics. Before instrumenting, review consent, privacy, and applicable requirements.",
-    },
-    question: {
-      es: "¿Qué plan de tracking aporta información útil y respeta la privacidad?",
-      en: "Which tracking plan is useful and respects privacy?",
-    },
-    options: {
-      es: [
-        "Registrar `booking_completed` al confirmar una reserva y medir cuántas se completan, sin datos personales.",
-        "Enviar a GA4 cada clic junto con el nombre y el email de la persona.",
-        "Agregar Analytics primero y decidir después qué datos recoger.",
-      ],
-      en: [
-        "Record `booking_completed` when a booking is confirmed and measure how many complete, without personal data.",
-        "Send every click to GA4 along with the person's name and email.",
-        "Add Analytics first and decide later which data to collect.",
-      ],
-    },
-    answer: 0,
-    feedback: {
-      es: "¡Exacto! Un evento ligado a un objetivo ayuda a tomar decisiones; minimizar los datos y cuidar el consentimiento protege a las personas.",
-      en: "Exactly! An event tied to a goal helps you make decisions; minimizing data and respecting consent protects people.",
-    },
-  },
-  {
     id: "design",
     icon: "✳",
     color: "lilac",
@@ -537,6 +498,45 @@ export const course: CourseModule[] = [
     feedback: {
       es: "Correcto. Operar el producto también es aprender y responder cuando algo cambia.",
       en: "Correct. Operating the product also means learning and responding when things change.",
+    },
+  },
+  {
+    id: "analytics",
+    icon: "⌁",
+    color: "blue",
+    title: { es: "Medir y aprender", en: "Measure and learn" },
+    role: { es: "Product analytics", en: "Product analytics" },
+    duration: { es: "18 min", en: "18 min" },
+    lessonTitle: { es: "Medí decisiones, no clics", en: "Measure decisions, not clicks" },
+    lesson: {
+      es: "Después de publicar, usá señales del producto para entender qué funciona y qué conviene mejorar. Seguí el recorrido del dato desde sus fuentes hasta modelos confiables en capas bronze, silver y gold. Diseñá dashboards para decisiones reales con herramientas como Tableau o Power BI; tracking, calidad y privacidad importan en cada etapa.",
+      en: "After shipping, use product signals to understand what works and what to improve. Follow data from its sources through trusted bronze, silver, and gold models. Design dashboards for real decisions with tools such as Tableau or Power BI; tracking, quality, and privacy matter at every step.",
+    },
+    practiceTitle: { es: "Un plan de tracking responsable", en: "A responsible tracking plan" },
+    practice: {
+      es: "Para tu proyecto, elegí un objetivo y armá una fila del plan: evento, cuándo se dispara, parámetro estrictamente necesario y qué decisión informa. Ejemplo: `booking_completed`, al confirmar el turno, `service_type`, para entender qué servicios se reservan. Nunca envíes nombres, emails ni información sensible a Analytics. Antes de instrumentar, revisá consentimiento, privacidad y requisitos aplicables.",
+      en: "For your project, choose a goal and draft one row in a tracking plan: event, when it fires, strictly necessary parameter, and the decision it informs. Example: `booking_completed`, when an appointment is confirmed, `service_type`, to learn which services people book. Never send names, emails, or sensitive information to Analytics. Before instrumenting, review consent, privacy, and applicable requirements.",
+    },
+    question: {
+      es: "¿Qué plan de tracking aporta información útil y respeta la privacidad?",
+      en: "Which tracking plan is useful and respects privacy?",
+    },
+    options: {
+      es: [
+        "Registrar `booking_completed` al confirmar una reserva y medir cuántas se completan, sin datos personales.",
+        "Enviar a GA4 cada clic junto con el nombre y el email de la persona.",
+        "Agregar Analytics primero y decidir después qué datos recoger.",
+      ],
+      en: [
+        "Record `booking_completed` when a booking is confirmed and measure how many complete, without personal data.",
+        "Send every click to GA4 along with the person's name and email.",
+        "Add Analytics first and decide later which data to collect.",
+      ],
+    },
+    answer: 0,
+    feedback: {
+      es: "¡Exacto! Un evento ligado a un objetivo ayuda a tomar decisiones; minimizar los datos y cuidar el consentimiento protege a las personas.",
+      en: "Exactly! An event tied to a goal helps you make decisions; minimizing data and respecting consent protects people.",
     },
   },
   {

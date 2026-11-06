@@ -416,8 +416,8 @@ export const curriculum: Record<string, LearningModule> = {
   },
   analytics: {
     overview: {
-      es: "Medir no es acumular clics. La analítica conecta preguntas de negocio con datos confiables y decisiones. Vas a definir eventos, entender el recorrido del dato desde sus fuentes hasta las capas bronze, silver y gold, y diseñar dashboards útiles en herramientas como Tableau o Power BI.",
-      en: "Measurement is not collecting clicks. Analytics connects business questions to trustworthy data and decisions. You will define events, follow data from its sources through bronze, silver, and gold layers, and design useful dashboards with tools such as Tableau or Power BI.",
+      es: "Después de publicar, la analítica ayuda a entender qué valor está creando el producto y qué conviene mejorar. Medir no es acumular clics: conecta preguntas de negocio con datos confiables y decisiones. Vas a definir eventos, entender el recorrido del dato desde sus fuentes hasta las capas bronze, silver y gold, y diseñar dashboards útiles en herramientas como Tableau o Power BI.",
+      en: "After shipping, analytics helps you understand what value the product creates and what to improve. Measurement is not collecting clicks: it connects business questions to trustworthy data and decisions. You will define events, follow data from its sources through bronze, silver, and gold layers, and design useful dashboards with tools such as Tableau or Power BI.",
     },
     outcome: {
       es: "Entregable: un plan de tracking con privacidad, un flujo de datos documentado, una métrica definida y un boceto de dashboard con audiencia y decisiones explícitas.",
