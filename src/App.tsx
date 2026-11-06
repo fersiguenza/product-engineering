@@ -871,60 +871,64 @@ function App() {
         </div>
 
         <section className="unit-content slide-card" aria-live="polite" key={activeUnit.term.es}>
-            <p className="eyebrow">{t.unitLabel(unitIndex + 1, activeCurriculum.units.length)}</p>
-            <h2>{text(activeUnit.term, language)}</h2>
-            {text(activeUnit.body, language).split("\n\n").map((paragraph) => (
-              <p className="unit-paragraph" key={paragraph}>{paragraph}</p>
-            ))}
-            <div className="unit-project">
-              <span>{activeProject.icon}</span>
-              <div>
-                <strong>{text(activeProject.title, language)}</strong>
-                <p>{text(activeProject.prompt, language)}</p>
-              </div>
-            </div>
-            <section className="project-work-card">
-              <div>
-                <p className="eyebrow">{t.projectWorkTitle}</p>
-                <p><strong>{t.projectWorkPrompt}:</strong> {text(activeCurriculum.outcome, language)}</p>
-                <p>{text(activeUnit.scenario, language)}</p>
-              </div>
-              <label>
-                <span className="sr-only">{t.projectWorkTitle} — {text(activeModule.title, language)}</span>
-                <textarea
-                  value={projectNotes[activeModule.id] ?? ""}
-                  onChange={(event) =>
-                    setProjectNotes((current) => ({ ...current, [activeModule.id]: event.target.value }))
-                  }
-                  placeholder={t.projectWorkPlaceholder}
-                  rows={4}
-                />
-              </label>
-            </section>
-            <details className="slide-reflection">
-              <summary>{t.reflect}</summary>
-              <p>{text(activeUnit.scenario, language)}</p>
-            </details>
-            <div className="unit-pagination">
-              <button
-                className="text-button"
-                onClick={() => setUnit(unitIndex - 1)}
-                disabled={unitIndex === 0}
-              >
-                ← {t.previous}
-              </button>
-              <span>{unitIndex + 1} / {activeCurriculum.units.length}</span>
-              {unitIndex < activeCurriculum.units.length - 1 ? (
-                <button className="button button-primary" onClick={() => setUnit(unitIndex + 1)}>
-                  {t.next} <span aria-hidden="true">→</span>
-                </button>
-              ) : (
-                <button className="button button-primary" onClick={startExam}>
-                  {t.startExam} <span aria-hidden="true">→</span>
-                </button>
-              )}
-            </div>
+          <div className="study-card-heading">
+            <p className="eyebrow">{t.lesson}</p>
+            <span className="practice-step study-step" aria-hidden="true">01</span>
+          </div>
+          <h2>{text(activeUnit.term, language)}</h2>
+          {text(activeUnit.body, language).split("\n\n").map((paragraph) => (
+            <p className="unit-paragraph" key={paragraph}>{paragraph}</p>
+          ))}
         </section>
+
+        <section className="project-work-card" aria-labelledby="project-work-title">
+          <header className="practice-card-heading">
+            <div>
+              <p className="eyebrow">{t.apply}</p>
+              <h2 id="project-work-title">{t.projectWorkTitle}</h2>
+            </div>
+            <span className="practice-step" aria-hidden="true">02</span>
+          </header>
+          <div className="practice-project">
+            <span aria-hidden="true">{activeProject.icon}</span>
+            <div>
+              <strong>{text(activeProject.title, language)}</strong>
+              <p>{text(activeProject.prompt, language)}</p>
+            </div>
+          </div>
+          <p className="practice-scenario">{text(activeUnit.scenario, language)}</p>
+          <label>
+            <span className="sr-only">{t.projectWorkTitle} — {text(activeModule.title, language)}</span>
+            <textarea
+              value={projectNotes[activeModule.id] ?? ""}
+              onChange={(event) =>
+                setProjectNotes((current) => ({ ...current, [activeModule.id]: event.target.value }))
+              }
+              placeholder={t.projectWorkPlaceholder}
+              rows={4}
+            />
+          </label>
+        </section>
+
+        <div className="unit-pagination">
+          <button
+            className="text-button"
+            onClick={() => setUnit(unitIndex - 1)}
+            disabled={unitIndex === 0}
+          >
+            ← {t.previous}
+          </button>
+          <span>{unitIndex + 1} / {activeCurriculum.units.length}</span>
+          {unitIndex < activeCurriculum.units.length - 1 ? (
+            <button className="button button-primary" onClick={() => setUnit(unitIndex + 1)}>
+              {t.next} <span aria-hidden="true">→</span>
+            </button>
+          ) : (
+            <button className="button button-primary" onClick={startExam}>
+              {t.startExam} <span aria-hidden="true">→</span>
+            </button>
+          )}
+        </div>
 
         <details className="study-guide">
           <summary>{t.studyGuide}</summary>

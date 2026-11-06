@@ -676,6 +676,8 @@ button { color: inherit; }
 .course-shell.sidebar-collapsed .course-main { width: min(100%, 1320px); }
 .course-shell.sidebar-collapsed .slide-progress,
 .course-shell.sidebar-collapsed .unit-content.slide-card,
+.course-shell.sidebar-collapsed .project-work-card,
+.course-shell.sidebar-collapsed .learning-page > .unit-pagination,
 .course-shell.sidebar-collapsed .study-guide { max-width: 1080px; }
 
 .slide-progress {
@@ -712,14 +714,34 @@ button { color: inherit; }
   animation: slide-arrive .2s ease both;
 }
 .slide-card > .eyebrow { color: #655bda; }
+.study-card-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.study-card-heading .eyebrow { margin: 0; color: #655bda; }
 .slide-card h2 { max-width: 720px; margin: 15px 0 20px; font-size: clamp(27px, 3.2vw, 39px); line-height: 1.18; letter-spacing: -.045em; }
 .slide-card .unit-paragraph { max-width: 730px; margin: 0; color: #454858; font-size: 15px; line-height: 1.85; }
 .slide-card .unit-project { max-width: 720px; margin-top: 24px; border-radius: 10px; background: #f6f5ff; }
 .slide-card .unit-project > span { border-radius: 8px; background: #eae8ff; }
-.slide-reflection { max-width: 720px; margin-top: 12px; border: 1px solid #e8e7f2; border-radius: 9px; background: #fff; }
-.slide-reflection summary { padding: 12px 14px; color: #6258ce; font-size: 11px; font-weight: 650; cursor: pointer; }
-.slide-reflection p { margin: 0; padding: 0 14px 14px; color: #55596b; font-size: 12px; line-height: 1.7; }
-.slide-card .unit-pagination { margin-top: 25px; padding-top: 18px; }
+.project-work-card {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: clamp(20px, 4vw, 32px);
+  border-color: #e5e3f2;
+  border-radius: 16px;
+  background: #f8f7ff;
+}
+.practice-card-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+.practice-card-heading .eyebrow { margin: 0; color: #655bda; }
+.practice-card-heading h2 { margin: 7px 0 0; color: #292b3d; font-size: clamp(21px, 2.5vw, 28px); font-weight: 730; letter-spacing: -.045em; }
+.practice-step { display: grid; width: 36px; height: 36px; flex: 0 0 auto; place-items: center; border: 1px solid #e0ddff; border-radius: 11px; background: #efeeff; color: #655bda; font-size: 11px; font-weight: 750; }
+.practice-project { display: grid; grid-template-columns: 38px minmax(0, 1fr); align-items: center; gap: 12px; margin-top: 20px; padding: 14px; border: 1px solid #e7e5f3; border-radius: 11px; background: #fff; }
+.practice-project > span { display: grid; width: 38px; height: 38px; place-items: center; border-radius: 11px; background: #f1f0ff; color: #655bda; font-size: 19px; }
+.practice-project strong { color: #333548; font-size: 13px; }
+.project-work-card .practice-project p { margin-top: 4px; color: #77798b; font-size: 11px; }
+.project-work-card .practice-scenario { margin: 18px 0 0; color: #454858; font-size: 14px; font-weight: 560; line-height: 1.75; }
+.project-work-card label { display: block; margin-top: 12px; }
+.learning-page > .unit-pagination { max-width: 880px; margin: 17px auto 28px; padding-top: 15px; border-top: 1px solid #e8e7f0; }
+.learning-page > .unit-pagination .button { min-height: 45px; border-radius: 10px; font-size: 12px; }
+.slide-reflection summary { font-size: 13px; }
+.slide-reflection p { font-size: 14px; }
 .study-guide { max-width: 880px; margin: 0 auto 26px; border: 1px solid #e8e7f1; border-radius: 11px; background: #fff; }
 .study-guide > summary { padding: 15px 18px; color: #5d55c9; font-size: 11px; font-weight: 650; cursor: pointer; }
 .study-guide-content { padding: 24px clamp(18px, 4vw, 40px) 36px; border-top: 1px solid #eeedf4; }
@@ -758,6 +780,11 @@ button { color: inherit; }
   .unit-content.slide-card { min-height: 0; padding: 24px 20px; border-radius: 13px; }
   .slide-card h2 { margin: 13px 0 15px; font-size: 30px; }
   .slide-card .unit-paragraph { font-size: 14px; line-height: 1.8; }
+  .project-work-card { margin-top: 14px; padding: 20px 16px; border-radius: 13px; }
+  .practice-project { grid-template-columns: 34px minmax(0, 1fr); gap: 10px; padding: 11px; }
+  .practice-project > span { width: 34px; height: 34px; }
+  .project-work-card .practice-scenario { font-size: 13px; }
+  .learning-page > .unit-pagination { margin-top: 12px; }
   .study-guide-content { padding: 20px 16px 28px; }
   .study-guide-header { flex-direction: column; }
 }
@@ -786,8 +813,6 @@ button { color: inherit; }
 .sidebar-project > p, .sidebar-project-prompt span, .sidebar-reset { font-size: 11px; }
 .course-footer, .course-footer button, .site-footer { font-size: 10px; }
 .slide-progress-label { font-size: 11px; }
-.slide-reflection summary { font-size: 13px; }
-.slide-reflection p { font-size: 14px; }
 .study-guide > summary { font-size: 13px; }
 .guide-action { font-size: 12px; }
 .guide-overview { font-size: 15px; }
