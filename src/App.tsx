@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { course, projects, text, type CoreLanguage, type CourseModule, type Language } from "./course";
 import { curriculum, type LearningUnit } from "./curriculum";
-import { buildStudyGuideMarkdown, studyResources } from "./studyGuide";
+import { buildStudyGuideMarkdown } from "./studyGuide";
 import { getUiTranslations } from "./locales";
 
 const STORAGE_KEY = "product-engineer-path-progress-v2";
@@ -93,9 +93,8 @@ const copy = {
     goToLesson: (current: number) => `Ir a la lección ${current}`,
     reflect: "Pensalo en una situación real",
     studyGuide: "Guía de estudio ampliada",
-    guideDescription: "Más contexto, preguntas para practicar y recursos confiables para seguir aprendiendo.",
-    downloadGuide: "Descargar Markdown",
-    printGuide: "Imprimir o guardar como PDF",
+    guideDescription: "Preguntas y errores frecuentes de esta lección.",
+    downloadGuide: "Descargar guía completa del módulo (Markdown)",
     apply: "Aplicalo a tu proyecto",
     checkUnderstanding: "Comprobá tu comprensión",
     commonMistake: "Error frecuente para evitar",
@@ -224,9 +223,8 @@ const copy = {
     goToLesson: (current: number) => `Go to lesson ${current}`,
     reflect: "Think it through in a real situation",
     studyGuide: "Extended study guide",
-    guideDescription: "More context, practice questions, and trusted resources to keep learning.",
-    downloadGuide: "Download Markdown",
-    printGuide: "Print or save as PDF",
+    guideDescription: "Questions and common mistakes for this lesson.",
+    downloadGuide: "Download the full module guide (Markdown)",
     apply: "Apply it to your project",
     checkUnderstanding: "Check your understanding",
     commonMistake: "Common mistake to avoid",
@@ -881,82 +879,30 @@ function App() {
           ))}
         </section>
 
-        <details className="study-guide" open>
-          <summary>
-            <span>{t.studyGuide}</span>
-            <span className="practice-step guide-step" aria-hidden="true">02</span>
-          </summary>
+        <section className="study-guide" aria-labelledby="study-guide-title">
           <div className="study-guide-content">
             <header className="study-guide-header">
               <div>
-                <p className="eyebrow">{t.guideDescription}</p>
-                <h2>{text(activeModule.title, language)}</h2>
+                <p className="eyebrow">{t.studyGuide} · {t.unitLabel(unitIndex + 1, activeCurriculum.units.length)}</p>
+                <h2 id="study-guide-title">{text(activeUnit.term, language)}</h2>
+                <p className="guide-description">{t.guideDescription}</p>
               </div>
               <div className="study-guide-actions">
                 <button className="guide-action" onClick={downloadStudyGuide}>{t.downloadGuide} ↓</button>
-                <button className="guide-action" onClick={() => window.print()}>{t.printGuide} ↗</button>
               </div>
             </header>
-            <p className="guide-overview">{text(activeCurriculum.overview, language)}</p>
-            <div className="guide-outcome">
-              <strong>{t.outcome}</strong>
-              <p>{text(activeCurriculum.outcome, language)}</p>
+            <div className="guide-lesson-points">
+              <article className="guide-lesson-point">
+                <h3>{t.checkUnderstanding}</h3>
+                <p>{text(activeUnit.question, language)}</p>
+              </article>
+              <article className="guide-lesson-point guide-lesson-misconception">
+                <h3>{t.commonMistake}</h3>
+                <p>{text(activeUnit.misconception, language)}</p>
+              </article>
             </div>
-            {activeModule.id === "engineering" && (
-              <section className="web-flow" aria-label={t.webFlowTitle}>
-                <p className="eyebrow">{t.webFlowTitle}</p>
-                <div className="web-flow-steps">
-                  <article>
-                    <span>01</span>
-                    <strong>{t.webFlowClient}</strong>
-                    <p>{t.webFlowClientText}</p>
-                  </article>
-                  <span className="flow-arrow" aria-hidden="true">→</span>
-                  <article>
-                    <span>02</span>
-                    <strong>{t.webFlowServer}</strong>
-                    <p>{t.webFlowServerText}</p>
-                  </article>
-                  <span className="flow-arrow" aria-hidden="true">→</span>
-                  <article>
-                    <span>03</span>
-                    <strong>{t.webFlowDatabase}</strong>
-                    <p>{t.webFlowDatabaseText}</p>
-                  </article>
-                </div>
-                <p className="web-flow-response">↶ {t.webFlowResponse}</p>
-              </section>
-            )}
-            <div className="guide-project">
-              <strong>{text(activeProject.title, language)}</strong>
-              <p>{text(activeProject.prompt, language)}</p>
-            </div>
-            <div className="guide-units">
-              {activeCurriculum.units.map((unit, index) => (
-                <article key={unit.term.es}>
-                  <p className="eyebrow">{t.unitLabel(index + 1, activeCurriculum.units.length)}</p>
-                  <h3>{text(unit.term, language)}</h3>
-                  <p>{text(unit.body, language)}</p>
-                  <p><strong>{t.apply}:</strong> {text(unit.scenario, language)}</p>
-                  <p><strong>{t.checkUnderstanding}:</strong> {text(unit.question, language)}</p>
-                  <p><strong>{t.commonMistake}:</strong> {text(unit.misconception, language)}</p>
-                </article>
-              ))}
-            </div>
-            <section className="guide-resources">
-              <h3>{t.furtherReading}</h3>
-              <ul>
-                {(studyResources[activeModule.id] ?? []).map((resource) => (
-                  <li key={resource.url}>
-                    <a href={resource.url} target="_blank" rel="noopener noreferrer">
-                      {text(resource.title, language)} ↗
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </section>
           </div>
-        </details>
+        </section>
 
         <section className="project-work-card" aria-labelledby="project-work-title">
           <header className="practice-card-heading">
