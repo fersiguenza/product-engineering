@@ -53,7 +53,7 @@ export const ptLocale = {
     "goToLesson": (current: number) => `Ir para a lição ${current}`,
     "reflect": "Pense bem em uma situação real",
     "studyGuide": "Abra o guia de estudo estendido",
-    "guideDescription": "Pontos-chave para consolidar o que você aprendeu nesta lição.",
+    "guideDescription": "Contexto do módulo, resultado esperado e recursos para aprofundar.",
     "downloadGuide": "Baixar o guia completo do módulo (Markdown)",
     "apply": "Aplique-o ao seu projeto",
     "checkUnderstanding": "Verifique sua compreensão",

@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { course, projects, text, type CoreLanguage, type CourseModule, type Language } from "./course";
 import { curriculum, type LearningUnit } from "./curriculum";
-import { buildStudyGuideMarkdown } from "./studyGuide";
+import { buildStudyGuideMarkdown, studyResources } from "./studyGuide";
 import { getUiTranslations } from "./locales";
 
 const STORAGE_KEY = "product-engineer-path-progress-v2";
@@ -93,7 +93,7 @@ const copy = {
     goToLesson: (current: number) => `Ir a la lección ${current}`,
     reflect: "Pensalo en una situación real",
     studyGuide: "Guía de estudio ampliada",
-    guideDescription: "Claves para consolidar lo aprendido en esta lección.",
+    guideDescription: "Contexto del módulo, resultado esperado y recursos para profundizar.",
     downloadGuide: "Descargar guía completa del módulo (Markdown)",
     apply: "Aplicalo a tu proyecto",
     checkUnderstanding: "Comprobá tu comprensión",
@@ -223,7 +223,7 @@ const copy = {
     goToLesson: (current: number) => `Go to lesson ${current}`,
     reflect: "Think it through in a real situation",
     studyGuide: "Extended study guide",
-    guideDescription: "Key ideas to reinforce what you learned in this lesson.",
+    guideDescription: "Module context, expected outcome, and resources to explore further.",
     downloadGuide: "Download the full module guide (Markdown)",
     apply: "Apply it to your project",
     checkUnderstanding: "Check your understanding",
@@ -881,10 +881,43 @@ function App() {
             <header className="lesson-study-header">
               <div>
                 <p className="eyebrow">{t.studyGuide}</p>
-                <h3 id="lesson-study-title">{t.guideDescription}</h3>
+                <h3 id="lesson-study-title">{text(activeModule.title, language)} · {text(activeUnit.term, language)}</h3>
+                <p className="guide-description">{t.guideDescription}</p>
               </div>
               <button className="guide-action" onClick={downloadStudyGuide}>{t.downloadGuide} ↓</button>
             </header>
+            <section className="guide-module-context">
+              <p>{text(activeCurriculum.overview, language)}</p>
+              <div>
+                <strong>{t.outcome}</strong>
+                <p>{text(activeCurriculum.outcome, language)}</p>
+              </div>
+            </section>
+            {activeModule.id === "engineering" && (
+              <section className="web-flow guide-web-flow" aria-label={t.webFlowTitle}>
+                <p className="eyebrow">{t.webFlowTitle}</p>
+                <div className="web-flow-steps">
+                  <article>
+                    <span>01</span>
+                    <strong>{t.webFlowClient}</strong>
+                    <p>{t.webFlowClientText}</p>
+                  </article>
+                  <span className="flow-arrow" aria-hidden="true">→</span>
+                  <article>
+                    <span>02</span>
+                    <strong>{t.webFlowServer}</strong>
+                    <p>{t.webFlowServerText}</p>
+                  </article>
+                  <span className="flow-arrow" aria-hidden="true">→</span>
+                  <article>
+                    <span>03</span>
+                    <strong>{t.webFlowDatabase}</strong>
+                    <p>{t.webFlowDatabaseText}</p>
+                  </article>
+                </div>
+                <p className="web-flow-response">↶ {t.webFlowResponse}</p>
+              </section>
+            )}
             <div className="guide-lesson-points">
               <article className="guide-lesson-point">
                 <h4>{t.checkUnderstanding}</h4>
@@ -895,6 +928,18 @@ function App() {
                 <p>{text(activeUnit.misconception, language)}</p>
               </article>
             </div>
+            <section className="guide-study-resources">
+              <h4>{t.furtherReading}</h4>
+              <ul>
+                {(studyResources[activeModule.id] ?? []).map((resource) => (
+                  <li key={resource.url}>
+                    <a href={resource.url} target="_blank" rel="noopener noreferrer">
+                      {text(resource.title, language)} ↗
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </section>
           </div>
         </section>
 

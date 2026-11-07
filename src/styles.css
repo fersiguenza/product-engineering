@@ -745,14 +745,25 @@ button { color: inherit; }
 .lesson-study-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
 .lesson-study-header .eyebrow { margin: 0; color: #655bda; }
 .lesson-study-header h3 { margin: 7px 0 0; color: #343648; font-size: 17px; font-weight: 680; letter-spacing: -.025em; }
+.guide-description { margin: 7px 0 0; color: #707287; font-size: 12px; line-height: 1.6; }
 .guide-action { max-width: 100%; padding: 6px 0; border: 0; background: transparent; color: #574fc3; font-size: 11px; font-weight: 650; line-height: 1.5; text-align: left; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
 .guide-action:hover { color: #39318f; }
+.guide-module-context { display: grid; gap: 16px; margin-top: 20px; }
+.guide-module-context > p { max-width: 760px; margin: 0; color: #4e5161; font-size: 13px; line-height: 1.8; }
+.guide-module-context > div { padding: 14px 16px; border-left: 3px solid #eea34d; border-radius: 7px; background: #fff8ec; }
+.guide-module-context strong { color: #333548; font-size: 11px; }
+.guide-module-context > div p { margin: 5px 0 0; color: #646678; font-size: 12px; line-height: 1.7; }
 .guide-lesson-points { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 18px; }
 .guide-lesson-point { min-width: 0; padding: 16px 18px; border: 1px solid #e8e7f1; border-radius: 10px; background: #fbfaff; }
 .guide-lesson-point h4 { margin: 0; color: #5d55c9; font-size: 11px; font-weight: 700; }
 .guide-lesson-point p { margin: 9px 0 0; color: #4e5161; font-size: 13px; line-height: 1.75; }
 .guide-lesson-misconception { border-color: #f0e5d7; background: #fffaf3; }
 .guide-lesson-misconception h4 { color: #98682d; }
+.guide-study-resources { margin-top: 22px; padding-top: 18px; border-top: 1px solid #e8e7f0; }
+.guide-study-resources h4 { margin: 0 0 10px; color: #343648; font-size: 12px; }
+.guide-study-resources ul { display: grid; gap: 8px; margin: 0; padding-left: 18px; }
+.guide-study-resources a { color: #574fc3; font-size: 12px; line-height: 1.6; text-underline-offset: 3px; }
+.guide-study-resources a:hover { color: #39318f; }
 @keyframes slide-arrive {
   from { opacity: 0; transform: translateY(7px); }
   to { opacity: 1; transform: translateY(0); }
@@ -772,8 +783,10 @@ button { color: inherit; }
   .project-work-card .practice-scenario { font-size: 13px; }
   .learning-page > .unit-pagination { margin-top: 12px; }
   .lesson-study-header { flex-direction: column; gap: 8px; }
+  .guide-module-context > p { font-size: 13px; }
   .guide-lesson-points { grid-template-columns: 1fr; gap: 10px; margin-top: 18px; }
   .guide-lesson-point { padding: 14px; }
+  .guide-study-resources a { font-size: 13px; }
 }
 
 @media print {
@@ -784,7 +797,7 @@ button { color: inherit; }
   .course-main { width: auto; max-width: none; margin: 0; padding: 0; }
   .learning-page { min-height: 0; }
   .project-work-card, .learning-page > .unit-pagination { display: none !important; }
-  .guide-action { display: none; }
+  .lesson-study-header .guide-action { display: none; }
   .guide-lesson-point { break-inside: avoid; }
 }
 
