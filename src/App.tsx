@@ -93,7 +93,7 @@ const copy = {
     goToLesson: (current: number) => `Ir a la lección ${current}`,
     reflect: "Pensalo en una situación real",
     studyGuide: "Guía de estudio ampliada",
-    guideDescription: "Preguntas y errores frecuentes de esta lección.",
+    guideDescription: "Claves para consolidar lo aprendido en esta lección.",
     downloadGuide: "Descargar guía completa del módulo (Markdown)",
     apply: "Aplicalo a tu proyecto",
     checkUnderstanding: "Comprobá tu comprensión",
@@ -223,7 +223,7 @@ const copy = {
     goToLesson: (current: number) => `Go to lesson ${current}`,
     reflect: "Think it through in a real situation",
     studyGuide: "Extended study guide",
-    guideDescription: "Questions and common mistakes for this lesson.",
+    guideDescription: "Key ideas to reinforce what you learned in this lesson.",
     downloadGuide: "Download the full module guide (Markdown)",
     apply: "Apply it to your project",
     checkUnderstanding: "Check your understanding",
@@ -877,27 +877,21 @@ function App() {
           {text(activeUnit.body, language).split("\n\n").map((paragraph) => (
             <p className="unit-paragraph" key={paragraph}>{paragraph}</p>
           ))}
-        </section>
-
-        <section className="study-guide" aria-labelledby="study-guide-title">
-          <div className="study-guide-content">
-            <header className="study-guide-header">
+          <div className="lesson-study-material" aria-labelledby="lesson-study-title">
+            <header className="lesson-study-header">
               <div>
-                <p className="eyebrow">{t.studyGuide} · {t.unitLabel(unitIndex + 1, activeCurriculum.units.length)}</p>
-                <h2 id="study-guide-title">{text(activeUnit.term, language)}</h2>
-                <p className="guide-description">{t.guideDescription}</p>
+                <p className="eyebrow">{t.studyGuide}</p>
+                <h3 id="lesson-study-title">{t.guideDescription}</h3>
               </div>
-              <div className="study-guide-actions">
-                <button className="guide-action" onClick={downloadStudyGuide}>{t.downloadGuide} ↓</button>
-              </div>
+              <button className="guide-action" onClick={downloadStudyGuide}>{t.downloadGuide} ↓</button>
             </header>
             <div className="guide-lesson-points">
               <article className="guide-lesson-point">
-                <h3>{t.checkUnderstanding}</h3>
+                <h4>{t.checkUnderstanding}</h4>
                 <p>{text(activeUnit.question, language)}</p>
               </article>
               <article className="guide-lesson-point guide-lesson-misconception">
-                <h3>{t.commonMistake}</h3>
+                <h4>{t.commonMistake}</h4>
                 <p>{text(activeUnit.misconception, language)}</p>
               </article>
             </div>
@@ -910,7 +904,7 @@ function App() {
               <p className="eyebrow">{t.apply}</p>
               <h2 id="project-work-title">{t.projectWorkTitle}</h2>
             </div>
-            <span className="practice-step" aria-hidden="true">03</span>
+            <span className="practice-step" aria-hidden="true">02</span>
           </header>
           <div className="practice-project">
             <span aria-hidden="true">{activeProject.icon}</span>

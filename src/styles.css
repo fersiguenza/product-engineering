@@ -677,8 +677,7 @@ button { color: inherit; }
 .course-shell.sidebar-collapsed .slide-progress,
 .course-shell.sidebar-collapsed .unit-content.slide-card,
 .course-shell.sidebar-collapsed .project-work-card,
-.course-shell.sidebar-collapsed .learning-page > .unit-pagination,
-.course-shell.sidebar-collapsed .study-guide { max-width: 1080px; }
+.course-shell.sidebar-collapsed .learning-page > .unit-pagination { max-width: 1080px; }
 
 .slide-progress {
   display: grid;
@@ -742,21 +741,18 @@ button { color: inherit; }
 .learning-page > .unit-pagination .button { min-height: 45px; border-radius: 10px; font-size: 12px; }
 .slide-reflection summary { font-size: 13px; }
 .slide-reflection p { font-size: 14px; }
-.study-guide { max-width: 880px; margin: 0 auto 26px; border: 1px solid #e8e7f1; border-radius: 11px; background: #fff; }
-.study-guide-content { padding: 24px clamp(18px, 4vw, 40px) 36px; border-top: 1px solid #eeedf4; }
-.study-guide-header { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
-.study-guide-header .eyebrow { max-width: 460px; color: #707287; text-transform: none; letter-spacing: 0; }
-.study-guide-header h2 { margin: 8px 0 0; font-size: clamp(25px, 3vw, 34px); letter-spacing: -.04em; }
-.guide-description { margin: 8px 0 0; color: #707287; font-size: 12px; line-height: 1.6; }
-.study-guide-actions { display: flex; flex-wrap: wrap; width: 100%; gap: 8px; }
+.lesson-study-material { margin-top: 28px; padding-top: 22px; border-top: 1px solid #e8e7f0; }
+.lesson-study-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+.lesson-study-header .eyebrow { margin: 0; color: #655bda; }
+.lesson-study-header h3 { margin: 7px 0 0; color: #343648; font-size: 17px; font-weight: 680; letter-spacing: -.025em; }
 .guide-action { max-width: 100%; padding: 6px 0; border: 0; background: transparent; color: #574fc3; font-size: 11px; font-weight: 650; line-height: 1.5; text-align: left; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
 .guide-action:hover { color: #39318f; }
-.guide-lesson-points { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 22px; }
+.guide-lesson-points { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 18px; }
 .guide-lesson-point { min-width: 0; padding: 16px 18px; border: 1px solid #e8e7f1; border-radius: 10px; background: #fbfaff; }
-.guide-lesson-point h3 { margin: 0; color: #5d55c9; font-size: 11px; font-weight: 700; }
+.guide-lesson-point h4 { margin: 0; color: #5d55c9; font-size: 11px; font-weight: 700; }
 .guide-lesson-point p { margin: 9px 0 0; color: #4e5161; font-size: 13px; line-height: 1.75; }
 .guide-lesson-misconception { border-color: #f0e5d7; background: #fffaf3; }
-.guide-lesson-misconception h3 { color: #98682d; }
+.guide-lesson-misconception h4 { color: #98682d; }
 @keyframes slide-arrive {
   from { opacity: 0; transform: translateY(7px); }
   to { opacity: 1; transform: translateY(0); }
@@ -775,8 +771,7 @@ button { color: inherit; }
   .practice-project > span { width: 34px; height: 34px; }
   .project-work-card .practice-scenario { font-size: 13px; }
   .learning-page > .unit-pagination { margin-top: 12px; }
-  .study-guide-content { padding: 20px 16px 28px; }
-  .study-guide-header { flex-direction: column; }
+  .lesson-study-header { flex-direction: column; gap: 8px; }
   .guide-lesson-points { grid-template-columns: 1fr; gap: 10px; margin-top: 18px; }
   .guide-lesson-point { padding: 14px; }
 }
@@ -789,10 +784,7 @@ button { color: inherit; }
   .course-main { width: auto; max-width: none; margin: 0; padding: 0; }
   .learning-page { min-height: 0; }
   .project-work-card, .learning-page > .unit-pagination { display: none !important; }
-  .study-guide { display: block !important; max-width: none; margin: 0; border: 0; }
-  .study-guide > .study-guide-content { display: block !important; padding: 0; border: 0; }
-  .study-guide-header { display: block; }
-  .study-guide-actions { display: none; }
+  .guide-action { display: none; }
   .guide-lesson-point { break-inside: avoid; }
 }
 

@@ -611,7 +611,7 @@ export const frLocale = {
     goToLesson: (current: number) => `Aller à la leçon ${current}`,
     reflect: "Réfléchissez à une situation réelle",
     studyGuide: "Guide d’étude approfondi",
-    guideDescription: "Questions et erreurs fréquentes de cette leçon.",
+    guideDescription: "Les points clés pour consolider les acquis de cette leçon.",
     downloadGuide: "Télécharger le guide complet du module (Markdown)",
     apply: "Appliquez le concept à votre projet",
     checkUnderstanding: "Vérifiez votre compréhension",
