@@ -13,18 +13,22 @@ Twelve modules take learners from product discovery to delivery and responsible 
 2. Product strategy, market context, business models, pricing, unit economics, distribution, and ethics
 3. Business analysis and requirements
 4. Project planning: scope, deliverables, estimation, capacity, dependencies, risk, budget, roadmap, communication, and learning
-5. Product analytics, data quality, bronze/silver/gold layers, and BI dashboards with Tableau or Power BI
-6. UX, UI, accessibility, Figma components, prototypes, and design handoff
-7. Software engineering fundamentals: frontend, backend, APIs, HTTP, authentication, relational and NoSQL databases, mobile apps, and app-store releases
-8. Software architecture: quality attributes, modularity, system boundaries, APIs, messaging, consistency, resilience, performance, and technical debt
-9. Application security, threat modeling, identity, authorization, privacy, dependency risk, and incident response
-10. Quality engineering and testing
-11. DevOps, cloud fundamentals, containers and Kubernetes, CI/CD, observability, incident response, and CDN caching
+5. UX, UI, accessibility, Figma components, prototypes, and design handoff
+6. Software engineering fundamentals: frontend, backend, APIs, HTTP, authentication, relational and NoSQL databases, mobile apps, and app-store releases
+7. Software architecture: quality attributes, modularity, system boundaries, APIs, messaging, consistency, resilience, performance, and technical debt
+8. Application security, threat modeling, identity, authorization, privacy, dependency risk, and incident response
+9. Quality engineering and testing
+10. DevOps, cloud fundamentals, containers and Kubernetes, CI/CD, observability, incident response, and CDN caching
+11. Product analytics, data quality, bronze/silver/gold layers, and BI dashboards with Tableau or Power BI
 12. AI fundamentals, prompt design, evaluation, RAG, spec-driven development, and OpenSpec
 
 Lessons are short and slide-like. Each module has an extended guide that can be read in the course, downloaded as Markdown, or printed/saved as PDF. Learners can record a project deliverable in every module, synthesize the work into a final product case, and download the portfolio as Markdown. Exams contain at least 30 applied questions, show the key concept after each answer, and require 80% to pass. Lesson position, language, project choice, deliverables, capstone reflection, answers, and scores are saved in browser `localStorage`.
 
 The AI module teaches verifiable, cross-functional workflows; it does not treat generated output as authoritative. The analytics and DevOps modules also include curated links to primary documentation and vendor-neutral concepts.
+
+## AI assistants
+
+[`llms.txt`](./llms.txt) is a quick index of the course content for AI assistants, and [`AGENTS.md`](./AGENTS.md) explains how they can support learners. The suggested course order is guidance, not a restriction: assistants should offer explanations, examples, and optional recaps while respecting each learner's choices. These files guide agents but cannot enforce their behavior.
 
 ## Run locally
 

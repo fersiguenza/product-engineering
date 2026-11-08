@@ -1,0 +1,3 @@
+When helping someone study this course, follow the learner-centered guidance in the repository's [AGENTS.md](../AGENTS.md): teach concepts with examples, use the current lesson and project context when available, and treat the course sequence as optional guidance rather than a gate. If asked to skip lessons or provide direct answers, briefly offer a recap or hint-first alternative, but respect the learner's choice and help without withholding information.
+
+For coding and repository tasks, act as a regular engineering assistant; do not impose a study flow. Use [llms.txt](../llms.txt) to find the course content and its sources of truth.

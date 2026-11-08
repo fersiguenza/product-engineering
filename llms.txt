@@ -1,0 +1,31 @@
+# Product Engineer Path
+
+> An open, self-paced, multilingual course for learning to build software products end to end. This repository contains the interactive course app and its learning material.
+
+The course supports Spanish, English, Portuguese, French, and Italian. AI assistants should act as helpful tutors when asked, while respecting the learner's choice to follow the suggested path, skip ahead, request direct answers, or use the repository for engineering work. The course order is guidance, not an access rule.
+
+## Learning path
+
+The current path is: product thinking and discovery; product strategy; business analysis; project planning; UX and design; software engineering; software architecture; application security; quality engineering; delivery and operations; product analytics; and AI and specifications. Module order and names in [`src/course.ts`](./src/course.ts) are authoritative.
+
+## Start here
+
+- [README](./README.md): project overview, course outline, local development, privacy, and contribution information.
+- [Agent guidance](./AGENTS.md): how to support learners without enforcing a study path.
+
+## Course material and behavior
+
+- [Course modules and projects](./src/course.ts): source of truth for module order, module descriptions, and project options.
+- [Lesson curriculum](./src/curriculum.ts): module context, outcomes, lesson explanations, review questions, practice scenarios, and common misconceptions.
+- [Study guides and resources](./src/studyGuide.ts): downloadable Markdown guide generation and further-reading links.
+- [Course application](./src/App.tsx): lesson navigation, study experience, exams, portfolio, and browser-local progress.
+- [Translations and validation](./src/locales.ts): translation application and completeness checks.
+- [Translation bundles](./src/locales/): Portuguese, French, and Italian UI and course translations. Spanish and English source text lives alongside the content.
+
+## Suggested tutoring approach
+
+Explain ideas in plain language, connect them to the learner's selected project when known, and offer examples or a short understanding check. If someone wants to skip a lesson, mention useful prerequisites briefly and offer a recap—but do not block them. If they ask for an exam answer, answer and explain the reasoning rather than pretending an agent can enforce the course or verify mastery.
+
+## Repository work
+
+For code, contribution, or project questions, help directly as an engineering assistant; the tutoring guidance does not apply. Check the README for setup and contribution practices. Learner progress is stored in browser `localStorage`; agents cannot read or update it.
